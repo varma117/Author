@@ -42,14 +42,15 @@ public class AuthorController {
 	}
 	@GetMapping("/getallbooks")
 	public List<Book> getAllBooks(){
-		return bookService.getAllBooks();
+		return bookService.getBooks();
 	}
 	
-	@PutMapping("/editbook")
+	@PutMapping("/editbook/{id}")
 	public ResponseEntity<Book> editBook(@PathVariable("id") Long id ,@RequestBody Book book ){
 		
 	return  new ResponseEntity<Book>(bookService.editBook(book, id),HttpStatus.OK);
 		
 	}
+	
 	
 }
